@@ -1,20 +1,19 @@
 package com.example.vsrinivas321.hh18app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
+import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity{
+public class DisplayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,19 +25,10 @@ public class MainActivity extends AppCompatActivity{
                         .setAction("Action", null).show();
             }
         });
-    }
 
-    public void onButtonClick(View v){
-        if(v.getId() == R.id.BLogin){
+        String username = getIntent().getStringExtra("Username");
 
-            EditText a = (EditText)findViewById(R.id.TFUsername);
-            String str = a.getText().toString();
-
-
-            Intent i =new Intent(MainActivity.this,DisplayActivity.class);
-            i.putExtra("Username", str);
-            startActivity(i);
-        }
     }
 
 }
+
